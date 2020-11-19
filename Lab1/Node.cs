@@ -4,53 +4,32 @@ using System.Text;
 
 namespace Lab1
 {
-    public class Node
+    public class Node<T>
     {
-        public int Data;
-        public Node Next;
+        private T data = default(T);
+        private Node<T> next = null;
 
-        public Node(int i)
+        public T Data
         {
-            Data = i;
-            Next = null;
-        }
-
-        public void Print()
-        {
-            Console.Write("|" + Data + "|->");
-            if(Next != null)
+            get { return data; }
+            set
             {
-                Next.Print();
+                if (value != null)
+                    data = value;
+                else
+                    throw new ArgumentNullException(nameof(value));
             }
         }
 
-        public void AddSorted(int data)
+        public Node<T> Next { get; set; }
+        public Node (T data)
         {
-            if (Next == null)
-            {
-                Next = new Node(data);
-            }
-            else if (data < Next.Data)
-            {
-                Node temp = new Node(data);
-                temp.Next = this.Next;
-                this.Next = temp;
-            }
-            else
-            {
-                Next.AddSorted(data);
-            }
+            Data = data;
         }
-        public void AddToEnd(int data)
+
+        public override string ToString()
         {
-            if(Next == null)
-            {
-                Next = new Node(data);
-            }
-            else
-            {
-                Next.AddToEnd(data);
-            }
+            return Data.ToString();
         }
     }
 }

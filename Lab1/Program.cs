@@ -7,20 +7,43 @@ namespace Lab1
         static void Main(string[] args)
         {
 
-            MyLinkedList List = new MyLinkedList();
-            List.AddToEnd(3);
-            List.AddToEnd(4);
-            List.AddToEnd(5);
-            List.AddToEnd(2);
-            List.AddToBeginning(13);
-            List.AddToBeginning(14);
-            List.AddToBeginning(15);
-            List.AddSorted(12);
-            List.AddSorted(31);
-            List.AddSorted(41);
-            List.AddSorted(51);
-            List.AddSorted(2);
-            List.Print();
+            MyLinkedList<int> List = new MyLinkedList<int>();
+
+            List.Add(1);
+            List.Add(2);
+            List.Add(3);
+            List.Add(4);
+            List.Add(5);
+
+            foreach(var item in List)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+            List.Delete(3);
+            List.Delete(1);
+            List.Delete(7);
+            foreach (var item in List)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+            List.AppendHead(8);
+            foreach (var item in List)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+            List.AddAfter(4, 8);
+            foreach (var item in List)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
         }
     }
 }
