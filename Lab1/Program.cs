@@ -44,6 +44,9 @@ namespace Lab1
             }
             Console.WriteLine();
 
+            if (List.Contains(4))
+                Console.WriteLine("contains 4");
+
         }
     }
 }

@@ -5,11 +5,14 @@ using System.Text;
 
 namespace Lab1
 {
-    class MyLinkedList<T> : IEnumerable
+    class MyLinkedList<T> : IEnumerable<T>
     {
         public Node<T> Head { get; private set; }
         public Node<T> Tail { get; private set; }
+        // количество элемнтов
         public int Count { get; private set; }
+        // проверка пустой ли список
+        public bool IsEmpty { get { return Count == 0; } }
 
         public MyLinkedList()
         {
@@ -22,6 +25,7 @@ namespace Lab1
             SetHeadAndTail(node);
         }
 
+        // добавить элемент в конец списка
         public void Add(T data)
         {
             var node = new Node<T>(data);
@@ -38,6 +42,7 @@ namespace Lab1
             }
         }
 
+        //удалить элемент в списке
         public void Delete(T data)
         {
             if (Head != null)
@@ -65,6 +70,7 @@ namespace Lab1
             }
         }
 
+        // добавить элемент в начало списка
         public void AppendHead(T data)
         {
             var node = new Node<T>(data)
@@ -76,6 +82,7 @@ namespace Lab1
             Count++;
         }
 
+        // добавить элемент после искомого элемента
         public void AddAfter(T target, T data)
         {
             if (Head != null)
@@ -106,11 +113,27 @@ namespace Lab1
             }
         }
 
+        // очистить список
         public void Clear()
         {
             Head = null;
             Tail = null;
             Count = 0;
+        }
+
+        //проверяем содержит ли список элемент
+        public bool Contains(T data)
+        {
+            var current = Head;
+            while(current != null)
+            {
+                if(current.Data.Equals(data))
+                {
+                    return true;
+                }
+                current = current.Next;
+            }
+            return false;
         }
 
         private void SetHeadAndTail(Node<T> node)
@@ -120,7 +143,13 @@ namespace Lab1
             Count = 1;
         }
 
-        public IEnumerator GetEnumerator()
+        //перечисление всех элементов списка
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)this).GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
         {
             var current = Head;
             while(current != null)
