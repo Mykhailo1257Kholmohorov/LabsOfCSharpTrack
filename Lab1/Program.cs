@@ -7,7 +7,7 @@ namespace Lab1
         static void Main(string[] args)
         {
 
-            MyLinkedList<int> List = new MyLinkedList<int>();
+            MyLinkedList<int> List = new MyLinkedList<int>(new []{11,22,33});
 
             List.Add(1);
             List.Add(2);

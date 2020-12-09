@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Lab1
 {
-    class MyLinkedList<T> : IEnumerable<T>
+    public class MyLinkedList<T> : IEnumerable<T>
     {
         public Node<T> Head { get; private set; }
         public Node<T> Tail { get; private set; }
-        // количество элемнтов
+        // количество элементов
         public int Count { get; private set; }
         // проверка пустой ли список
         public bool IsEmpty { get { return Count == 0; } }
@@ -23,6 +23,17 @@ namespace Lab1
         {
             var node = new Node<T>(data);
             SetHeadAndTail(node);
+        }
+
+        public MyLinkedList(T[]array)
+        {
+            var node = new Node<T>(array[0]);
+            SetHeadAndTail(node);
+            for (int i = 1; i < array.Length; i++)
+            {
+                this.Add(array[i]);
+            }
+
         }
 
         // добавить элемент в конец списка
