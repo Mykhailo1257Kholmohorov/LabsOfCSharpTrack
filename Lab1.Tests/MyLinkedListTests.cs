@@ -44,7 +44,7 @@ namespace Lab1.Tests
             myList.Add(5);
 
             Assert.AreEqual( 5, myList.Head.Next.Next.Data, "List should have last element {0}", 5);
-            //Assert.AreEqual(myList.Contains(5),true, "List should have last element {0}", 5);
+            CollectionAssert.Contains(myList, 5,"List should contain element {0}", 5);
         }
 
         [TestMethod]
@@ -77,6 +77,7 @@ namespace Lab1.Tests
 
             myList.AddAfter(3,5);
 
+            CollectionAssert.Contains(myList,5, "List should contain element {0}", 5);
             Assert.AreEqual(5,myList[3],"Element after 3 is not 5");
         }
 
@@ -108,10 +109,7 @@ namespace Lab1.Tests
 
             mList.CopyTo(array,3);
 
-            Assert.AreEqual(mList[3],array[0],"Elements hasn't copied to array");
-            Assert.AreEqual(mList[4], array[1], "Elements hasn't copied to array");
-            Assert.AreEqual(mList[5], array[2], "Elements hasn't copied to array");
-
+            CollectionAssert.Contains(mList,array, "Elements hasn't copied to array");
         }
     }
 }

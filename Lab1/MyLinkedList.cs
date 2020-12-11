@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Lab1
 {
-    public class MyLinkedList<T> :IEnumerable<T>, ICollection<T>
+    public class MyLinkedList<T> :ICollection<T>, ICollection
     {
         public Node<T> Head { get; private set; }
         public Node<T> Tail { get; private set; }
@@ -216,5 +216,13 @@ namespace Lab1
         {
             return "Linked List " + Count + " elements";
         }
+
+        public void CopyTo(Array array, int index)
+        {
+            this.CopyTo(array,index);
+        }
+        public bool IsSynchronized { get { return true; } }
+
+        public object SyncRoot { get; }
     }
 }
