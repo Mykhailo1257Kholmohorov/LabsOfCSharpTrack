@@ -1,18 +1,45 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Lab1
 {
-    public class MyLinkedList<T> : IEnumerable<T>
+    public class MyLinkedList<T> :IEnumerable<T>, ICollection<T>
     {
         public Node<T> Head { get; private set; }
         public Node<T> Tail { get; private set; }
+        // Колекция не только для чтения
+        public bool IsReadOnly
+        {
+            get { return false; }
+        }
+
         // количество элементов
         public int Count { get; private set; }
+
         // проверка пустой ли список
         public bool IsEmpty { get { return Count == 0; } }
+
+        // индексатор
+        public T this[int index]
+        {
+            get
+            {
+                Node<T> temp = Head;
+                for (int i = 0; i < index; i++)
+                    temp = temp.Next;
+                return temp.Data;
+            }
+            set
+            {
+                Node<T> temp = Head;
+                if(index > Count-1)
+                    throw new IndexOutOfRangeException("Your index out of range");
+                for (int i = 0; i < index; i++)
+                    temp = temp.Next;
+                temp.Data = value;
+            }
+        }
 
         public MyLinkedList()
         {
@@ -24,7 +51,7 @@ namespace Lab1
             var node = new Node<T>(data);
             SetHeadAndTail(node);
         }
-
+        // инициализируем массивом
         public MyLinkedList(T[]array)
         {
             var node = new Node<T>(array[0]);
@@ -54,7 +81,7 @@ namespace Lab1
         }
 
         //удалить элемент в списке
-        public void Delete(T data)
+        public bool Remove(T data)
         {
             if (Head != null)
             {
@@ -62,9 +89,8 @@ namespace Lab1
                 {
                     Head = Head.Next;
                     Count--;
-                    return;
+                    return true;
                 }
-
                 var current = Head.Next;
                 var previous = Head;
                 while (current.Next != null)
@@ -73,12 +99,14 @@ namespace Lab1
                     {
                         previous.Next = current.Next;
                         Count--;
-                        return;
+                        return true;
                     }
                     previous = current;
                     current = current.Next;
                 }
             }
+
+            return false;
         }
 
         // добавить элемент в начало списка
@@ -145,6 +173,20 @@ namespace Lab1
                 current = current.Next;
             }
             return false;
+        }
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            if(array == null)
+                throw new ArgumentNullException("Array is null");
+            if(arrayIndex < 0)
+                throw new ArgumentOutOfRangeException("array Index less then 0");
+            if(Count - arrayIndex- 1 > array.Length)
+                throw new ArgumentException("The number of elements in the source collection is greater than the available space");
+            
+            for (int i = 0; i < array.Length; i++, arrayIndex++)
+            {
+                array[i] = this[arrayIndex];
+            }
         }
 
         private void SetHeadAndTail(Node<T> node)

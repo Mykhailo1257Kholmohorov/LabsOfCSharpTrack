@@ -21,9 +21,9 @@ namespace Lab1
             }
             Console.WriteLine();
 
-            List.Delete(3);
-            List.Delete(1);
-            List.Delete(7);
+            List.Remove(3);
+            List.Remove(1);
+            List.Remove(7);
             foreach (var item in List)
             {
                 Console.Write(item + " ");
