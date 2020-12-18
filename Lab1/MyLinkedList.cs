@@ -43,7 +43,6 @@ namespace Lab1
 
         public MyLinkedList()
         {
-            Clear();
         }
 
         public MyLinkedList(T data)
