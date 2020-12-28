@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "News Page";
+}
+
+<div>
+@foreach (var a in ViewBag.Articles)
+{
+    <h3>@a.Title</h3>
+    <p>@a.Content</p>
+    <p>@a.Date</p>
+}
+<p><a href ="/Home/Login">Add Article</a></p>
+</div>

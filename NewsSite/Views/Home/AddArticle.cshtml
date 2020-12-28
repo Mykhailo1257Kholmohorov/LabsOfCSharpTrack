@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "AddArticle";
+}
+
+<h2>AddArticle</h2>
+
+<form method="post">
+    <table>
+        <tr>
+            <td><p>Введите заголовок статьи</p></td>
+            <td><input type="text" name="Title"/></td>
+        </tr>
+        <tr>
+            <td><p>Введите тему статьи</p></td>
+            <td><input type="text" name="Topic"/></td>
+        </tr>
+        <tr>
+            <td><p>Напишите статью</p></td>
+            <td><textarea name="Content" cols="400" rows="3"></textarea></td>
+        </tr>
+        <tr><td><input type="submit" value="Send"/></td></tr>
+    </table>
+
+</form>
