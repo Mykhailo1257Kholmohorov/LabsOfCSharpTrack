@@ -1,7 +1,8 @@
 # LabsOfCSharpTrack
 My labs solutions of C# track
 
-##Для лаб 3-5
+##Для лаб 3-5 NewsSite
+
 Главная страница
 
 ![main](https://github.com/Mykhailo1257Kholmohorov/LabsOfCSharpTrack/tree/master/NewsSite/Images/main.jpg)
