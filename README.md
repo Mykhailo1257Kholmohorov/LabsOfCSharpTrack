@@ -4,10 +4,6 @@ My labs solutions of C# track
 
 ![main](https://github.com/Mykhailo1257Kholmohorov/LabsOfCSharpTrack/tree/master/NewsSite/Images/main.jpg)
 
-Добавление новойстатьи для зарегестрированих пользователей
-
-![add article](https://github.com/Mykhailo1257Kholmohorov/LabsOfCSharpTrack/tree/master/NewsSite/Images/addart.jpg)
-
 Если вы не вошли в учотку, то нужно залогиниться
 
 ![login](https://github.com/Mykhailo1257Kholmohorov/LabsOfCSharpTrack/tree/master/NewsSite/Images/login.jpg)
@@ -15,6 +11,11 @@ My labs solutions of C# track
 Если учотки нет, то регистрация
 
 ![registration](https://github.com/Mykhailo1257Kholmohorov/LabsOfCSharpTrack/tree/master/NewsSite/Images/regist.jpg)
+
+Добавление новой статьи для зарегестрированих пользователей
+
+![add article](https://github.com/Mykhailo1257Kholmohorov/LabsOfCSharpTrack/tree/master/NewsSite/Images/addart.jpg)
+
 
 Пример, новой добавленной статьи
 
